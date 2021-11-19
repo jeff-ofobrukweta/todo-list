@@ -3,23 +3,6 @@
   <span style="margin-left: 16px">Redux Saga Todo List</span>
 </h1>
 
-<p style="text-align: center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/luanedcosta/redux-saga-todo-list.svg">
-
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luanedcosta/redux-saga-todo-list.svg">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/luanedcosta/redux-saga-todo-list.svg">
-
-  <img alt="GitHub" src="https://img.shields.io/github/license/luanedcosta/redux-saga-todo-list.svg">
-
-   <a href="https://github.com/luanedcosta/redux-saga-todo-list/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luanedcosta/redux-saga-todo-list.svg">
-  </a>
-
-  <a href="https://github.com/luanedcosta/redux-saga-todo-list/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/luanedcosta/redux-saga-todo-list.svg">
-  </a>
-</p>
 
 <div style="text-align: center">
     <img alt="App Screenshot" src="images/screenshot.png">
@@ -31,7 +14,7 @@
 
 This project was created to study more about Redux and learn Redux Saga to improve the state management of an application.
 
-👉 [CLICK HERE](https://luanedcosta.github.io/redux-saga-todo-list/) to see it running in your browser.
+👉 [CLICK HERE](https://github.com/jeff-ofobrukweta/todo-list) to see it running in your browser.
 
 ## :rocket: Technologies
 
@@ -49,7 +32,7 @@ From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/LuanEdCosta/redux-saga-todo-list.git
+$ git clone https://github.com/jeff-ofobrukweta/todo-list.git
 
 # Go into the repository
 $ cd redux-saga-todo-list
@@ -63,7 +46,7 @@ $ yarn start
 
 ## :man: Author
 
-Made with ♥ by Luan Eduardo da Costa | [Follow me on Linkedin](https://www.linkedin.com/in/luaneducosta/)
+Made with ♥ by Ofobrukweta Jeff | [Follow me on Linkedin](https://www.linkedin.com/in/ofobrukweta-jeff-207506136/)
 
 [nodejs]: https://nodejs.org/
 [yarn]: https://yarnpkg.com/
