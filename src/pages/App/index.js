@@ -25,10 +25,7 @@ const App = () => {
     e.preventDefault()
     if (!task.trim()) return
 
-    // const fetchUserAction = requestFetchTodo()
-    // dispatch(fetchUserAction)
     dispatch(addTask(task))
-    // setUserName('')
     setTask('')
 
     taskRef.current.focus()
