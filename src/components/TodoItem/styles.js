@@ -15,13 +15,6 @@ export const Container = styled.div`
   }
 `
 
-export const Image = styled.img`
-  width: 5rem;
-  height: 5rem;
-  border-radius: 100%;
-  border: none;
-  outline: none;
-`
 
 export const Content = styled.div`
   flex: 1;
@@ -30,13 +23,6 @@ export const Content = styled.div`
   overflow: hidden;
 `
 
-export const UserName = styled.div`
-  font-weight: bold;
-  font-size: 1.8rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
 
 export const Task = styled.div``
 

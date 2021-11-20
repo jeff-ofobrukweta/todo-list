@@ -37,7 +37,7 @@ export const InputContainer = styled.div`
 
 export const Input = styled.input`
   margin: 8px 0;
-  width: calc(50% - 8px);
+  width: 100%;
   padding: 1.6rem;
   background: var(--background-color);
   border: none;

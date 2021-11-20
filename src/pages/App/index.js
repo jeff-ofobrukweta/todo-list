@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeTaskById, requestFetchUser } from 'store/ducks/task'
+import { removeTaskById, requestFetchTodo, addTask, } from 'store/ducks/task'
 import {
   Container,
   InputContainer,
@@ -15,8 +15,7 @@ import {
 } from './styles'
 
 const App = () => {
-  const userNameRef = useRef(null)
-  const [username, setUserName] = useState('')
+  const taskRef = useRef(null)
   const [task, setTask] = useState('')
 
   const dispatch = useDispatch()
@@ -24,22 +23,30 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!username.trim() || !task.trim()) return
+    if (!task.trim()) return
 
-    const fetchUserAction = requestFetchUser(username, task)
-    dispatch(fetchUserAction)
-
-    setUserName('')
+    // const fetchUserAction = requestFetchTodo()
+    // dispatch(fetchUserAction)
+    dispatch(addTask(task))
+    // setUserName('')
     setTask('')
 
-    userNameRef.current.focus()
+    taskRef.current.focus()
   }
 
   const handleRemoveTask = (id) => {
     const removeTaskAction = removeTaskById(id)
     dispatch(removeTaskAction)
   }
+  useEffect(() => {
+    const fetchUserAction = requestFetchTodo()
+    dispatch(fetchUserAction)
 
+  }, [])
+  useEffect(() => {
+    console.log(taskList);
+
+  }, [taskList])
   return (
     <Container>
       <TodoContainer onSubmit={handleSubmit}>
@@ -47,22 +54,16 @@ const App = () => {
 
         <InputContainer>
           <Input
-            ref={userNameRef}
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="Github Username"
-          />
-
-          <Input
+            ref={taskRef}
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            placeholder="Task"
+            placeholder="Add Task here"
           />
         </InputContainer>
 
         <AddButton type="submit">Add Task +</AddButton>
 
-        {!!showError && <Error text="Uer not found!" />}
+        {/* {!!showError && <Error text="Uer not found!" />} */}
 
         <TodoListContainer>
           {!taskList.length && (
@@ -71,17 +72,14 @@ const App = () => {
 
           {
             taskList.map((taskItem) => {
-              const { id, userName, task, name, avatar } = taskItem
+              const { id, task } = taskItem
               const onRemove = () => handleRemoveTask(id)
 
               return (
                 <TaskItem
                   key={id}
-                  task={task}
-                  imageSrc={avatar}
                   onRemoveClick={onRemove}
-                  userName={name || userName}
-                />
+                  task={task} />
               )
             })
           }

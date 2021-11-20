@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
  :root{
-    --accent-color: #ff944d;
-    --accent-color-active: #ff751a;
+    --accent-color: #ed7d84;
+    --accent-color-active: #ed7c83d4;
     --text-color: #ffffff;
-    --background-color: #333333;
+    --background-color: #49486c;
     --list-container-background: #232323;
     --error-color: #ff4d4d;
   }

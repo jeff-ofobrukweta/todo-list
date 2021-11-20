@@ -1,22 +1,19 @@
 import {
   ADD_TASK,
   REMOVE_TASK_BY_ID,
-  USER_FETCH_REQUESTED,
-  USER_FETCH_FAILED,
+  TODO_FETCH_REQUESTED,
+  TODO_FETCH_FAILED,
 } from './types'
 
-export const addTask = (userData, task) => {
-  const { avatar_url, name, login } = userData
+export const addTask = (task, completed = false, multiTask) => {
   const id = new Date().getTime()
 
   return {
     type: ADD_TASK,
-    payload: {
+    payload: multiTask ? multiTask : {
       id,
       task,
-      name,
-      userName: login,
-      avatar: avatar_url,
+      completed
     },
   }
 }
@@ -26,14 +23,10 @@ export const removeTaskById = (taskId) => ({
   payload: taskId
 })
 
-export const requestFetchUser = (userName, task) => ({
-  type: USER_FETCH_REQUESTED,
-  payload: {
-    userName,
-    task,
-  }
+export const requestFetchTodo = () => ({
+  type: TODO_FETCH_REQUESTED
 })
 
-export const fetchUserFailed = () => ({
-  type: USER_FETCH_FAILED,
+export const fetchTodoFailed = () => ({
+  type: TODO_FETCH_FAILED,
 })

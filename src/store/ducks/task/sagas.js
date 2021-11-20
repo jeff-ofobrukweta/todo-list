@@ -1,19 +1,18 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
-import { USER_FETCH_REQUESTED } from './types'
-import { addTask, fetchUserFailed } from './actions'
+import { TODO_FETCH_REQUESTED } from './types'
+import { addTask, fetchTodoFailed } from './actions'
 import { Server } from 'services'
 
-export function* fetchUser(action) {
+export function* fetchTodos(action) {
   try {
-    const { userName, task } = action.payload
-    const { data } = yield call(Server.get, `users/${userName}`)
-    const addTaskAction = addTask(data, task)
+    const { data } = yield call(Server.get, `todos?_limit=5`)
+    const addTaskAction = addTask(null,null,data)
     yield put(addTaskAction)
   } catch (e) {
-    yield put(fetchUserFailed())
+    yield put(fetchTodoFailed())
   }
 }
 
-export function* watchFetchUser() {
-  yield takeEvery(USER_FETCH_REQUESTED, fetchUser)
+export function* watchFetchTodo() {
+  yield takeEvery(TODO_FETCH_REQUESTED, fetchTodos)
 }
