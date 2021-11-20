@@ -8,7 +8,9 @@ export default function Index() {
     return (
         <div className="Index">
             <Routes>
+                {/* todo route  */}
                 <Route path="/" element={<App />} />
+                {/* single todo route */}
                 <Route path="/:todo" element={<SingleTodo />} />
             </Routes>
         </div>
