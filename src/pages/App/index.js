@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeTaskById, requestFetchTodo, addTask, } from 'store/ducks/task'
+import { removeTaskById, requestFetchTodo, addTask } from 'store/ducks/task'
 import {
   Container,
   InputContainer,
@@ -36,13 +36,13 @@ const App = () => {
     dispatch(removeTaskAction)
   }
   useEffect(() => {
-    const fetchUserAction = requestFetchTodo()
-    dispatch(fetchUserAction)
-
+    if (!taskList.length) {
+      const fetchTodoAction = requestFetchTodo()
+      dispatch(fetchTodoAction)
+    }
   }, [])
   useEffect(() => {
-    console.log(taskList);
-
+    console.log(taskList)
   }, [taskList])
   return (
     <Container>
@@ -67,19 +67,14 @@ const App = () => {
             <EmptyListMessage>No Task to Show</EmptyListMessage>
           )}
 
-          {
-            taskList.map((taskItem) => {
-              const { id, task } = taskItem
-              const onRemove = () => handleRemoveTask(id)
+          {taskList.map((taskItem) => {
+            const { id, task } = taskItem
+            const onRemove = () => handleRemoveTask(id)
 
-              return (
-                <TaskItem
-                  key={id}
-                  onRemoveClick={onRemove}
-                  task={task} />
-              )
-            })
-          }
+            return (
+              <TaskItem key={id} id={id} onRemoveClick={onRemove} task={task} />
+            )
+          })}
         </TodoListContainer>
       </TodoContainer>
     </Container>
