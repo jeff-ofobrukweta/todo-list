@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const Server = Axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com'
+  baseURL: process.env.REACT_APP_BASE_URL
 })
 
 export default Server
