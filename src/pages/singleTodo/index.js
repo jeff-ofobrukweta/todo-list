@@ -8,7 +8,10 @@ const SingleTodo = () => {
   const { taskList } = useSelector(({ Task }) => Task)
   const navigate = useNavigate()
   useEffect(() => {
-    if (!taskList.length) {
+    if (
+      !taskList.length ||
+      !taskList.filter((todo) => Number(todo.id) === Number(params)).length
+    ) {
       navigate('/')
     }
   }, [taskList])
