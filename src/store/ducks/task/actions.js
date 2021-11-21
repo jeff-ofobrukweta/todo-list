@@ -3,6 +3,7 @@ import {
   REMOVE_TASK_BY_ID,
   TODO_FETCH_REQUESTED,
   TODO_FETCH_FAILED,
+  UPDATE_TASK_BY_ID,
 } from './types'
 
 export const addTask = (task, completed = false, multiTask) => {
@@ -10,21 +11,28 @@ export const addTask = (task, completed = false, multiTask) => {
 
   return {
     type: ADD_TASK,
-    payload: multiTask ? multiTask : {
-      id,
-      task,
-      completed
-    },
+    payload: multiTask
+      ? multiTask
+      : {
+          id,
+          task,
+          completed,
+        },
   }
 }
 
 export const removeTaskById = (taskId) => ({
   type: REMOVE_TASK_BY_ID,
-  payload: taskId
+  payload: taskId,
+})
+
+export const updateTaskById = ({ payload }) => ({
+  type: UPDATE_TASK_BY_ID,
+  payload,
 })
 
 export const requestFetchTodo = () => ({
-  type: TODO_FETCH_REQUESTED
+  type: TODO_FETCH_REQUESTED,
 })
 
 export const fetchTodoFailed = () => ({
