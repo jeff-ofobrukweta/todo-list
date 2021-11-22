@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Container, Task, RemoveButton, Content, StyledLink, DeleteTask, FlexContainerWrapper } from './styles'
-import { Link } from 'react-router-dom'
 
 const TodoItem = (props) => {
   const { className, onCheckboxChange, task, id, onRemoveClick, completed } =

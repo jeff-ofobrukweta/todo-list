@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
     case ADD_TASK: {
       const newState = { ...state, showError: false }
 
+      const id = Math.max(...state.taskList.map((i) => i.id)) + 1;
       // to add the payload to the state if it is an array we spread else if it is an object we just add it to the tasklist state
 
       if (payload.length && Array.isArray(payload)) {
@@ -29,7 +30,7 @@ export default (state = initialState, action) => {
         })
         newState.taskList = [...newState.taskList, ...newPayload]
       } else {
-        newState.taskList = [...newState.taskList, payload]
+        newState.taskList = [...newState.taskList, { ...payload, id }]
       }
       return newState
     }

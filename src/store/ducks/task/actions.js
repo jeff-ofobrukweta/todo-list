@@ -7,14 +7,15 @@ import {
 } from './types'
 
 export const addTask = (task, completed = false, multiTask) => {
-  const id = new Date().getTime()
+  // const id = new Date().getTime()
+  
 
   return {
     type: ADD_TASK,
     payload: multiTask
       ? multiTask
       : {
-          id,
+          // id,
           task,
           completed,
         },
