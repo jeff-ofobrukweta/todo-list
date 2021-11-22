@@ -23,7 +23,7 @@ const TodoItem = (props) => {
         {completed ? (
           <CompleteTaskText>{task}</CompleteTaskText>
         ) : (
-          <Task>{task}</Task>
+          <Task title={task}>{task}</Task>
         )}
 
         <FlexContainerWrapper>

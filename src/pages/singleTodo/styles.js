@@ -17,7 +17,9 @@ export const TodoContainer = styled.form`
   width: 40%;
   max-width: 600px;
   min-width: 360px;
-  margin: 13rem auto;
+  max-width: 500px;
+  padding: 0rem 1rem;
+  width: 100%;
 `
 
 export const Title = styled.h1`
@@ -35,7 +37,6 @@ export const InputContainer = styled.div`
 `
 
 export const Input = styled.input`
-  margin: 8px 0;
   width: 100%;
   padding: 1.6rem;
   background: var(--background-color);
@@ -44,6 +45,7 @@ export const Input = styled.input`
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
   outline: none;
+  margin: 3rem auto;
 
   &:focus {
     background: rgba(0, 0, 0, 0.1);
