@@ -28,6 +28,13 @@ export const Content = styled.div`
 
 export const Task = styled.div``
 
+
+export const DeleteTask = styled.button`
+    color: #fff !important;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+`
+
 export const RemoveButton = styled.div`
   position: absolute;
   top: 0;
