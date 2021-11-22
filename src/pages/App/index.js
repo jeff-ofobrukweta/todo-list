@@ -12,7 +12,6 @@ import {
   EmptyListMessage,
   AddButton,
   TaskItem,
-  Error,
 } from './styles'
 
 const App = () => {
@@ -20,7 +19,7 @@ const App = () => {
   const [task, setTask] = useState('')
 
   const dispatch = useDispatch()
-  const { taskList, showError } = useSelector(({ Task }) => Task)
+  const { taskList } = useSelector(({ Task }) => Task)
 
   const handleSubmit = (e) => {
     e.preventDefault()

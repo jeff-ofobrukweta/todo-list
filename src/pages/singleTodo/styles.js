@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -41,19 +41,33 @@ export const Input = styled.input`
   border: none;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 5px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   outline: none;
 
   &:focus {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.8);
   }
 `
 
+const ripple = keyframes`
+0% {
+  transform: scale(0, 0);
+  opacity: 1;
+}
+20% {
+  transform: scale(25, 25);
+  opacity: 1;
+}
+100% {
+  opacity: 0;
+  transform: scale(40, 40);
+}`
+
 export const AddButton = styled.button`
   padding: 1.6rem 2.4rem;
   background: var(--accent-color);
-  transition: background .2s ease-in-out;
+  transition: background 0.2s ease-in-out;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -63,8 +77,21 @@ export const AddButton = styled.button`
   font-weight: bold;
   font-size: 1.8rem;
 
-  &:hover, &:active{
-    background: var(--accent-color-active);
+  background-position: center;
+  transition: background 0.8s;
+
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover {
+    background: #ed7c83 radial-gradient(circle, transparent 1%, #ed7c83 1%)
+      center/15000%;
+  }
+
+  &:active {
+    background-color: #e3babc !important;
+    background-size: 100% !important;
+    transition: background 0s !important;
   }
 `
 
@@ -79,5 +106,3 @@ export const EmptyListMessage = styled.div`
   color: rgba(255, 255, 255, 0.4);
   text-align: center;
 `
-
-
