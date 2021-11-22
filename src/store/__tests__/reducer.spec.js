@@ -21,13 +21,17 @@ describe('Testing saga reducer', () => {
         }
         const type = "@task/ADD_TASK";
 
-        const payload = []
+        const payload = {
+            completed: false,
+            title: "testing aut here",
+            userId: 1
+        }
 
         const action = { type, payload };
 
         const reducerReturnValue = reducers(initialState, action);
 
-        expect(reducerReturnValue.taskList).toEqual([[]]);
+        expect(reducerReturnValue.taskList[0]).toEqual({ ...payload, id: 1 });
     });
 
 
@@ -52,6 +56,9 @@ describe('Testing saga reducer', () => {
 
         const reducerReturnValue = reducers(initialState, action);
 
-        expect(reducerReturnValue).toEqual({"showError": false, "taskList": []});
+        expect(reducerReturnValue).toEqual({ "showError": false, "taskList": [] });
     });
+
+
+    
 });

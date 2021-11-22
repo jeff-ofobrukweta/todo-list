@@ -18,6 +18,7 @@ export default (state = initialState, action) => {
       const newState = { ...state, showError: false }
 
       const id = Math.max(...state.taskList.map((i) => i.id)) + 1;
+      const checkId = id > 0 ? id : 1; // this validate the problem of -Infinity for empty array case
       // to add the payload to the state if it is an array we spread else if it is an object we just add it to the tasklist state
 
       if (payload.length && Array.isArray(payload)) {
@@ -30,7 +31,7 @@ export default (state = initialState, action) => {
         })
         newState.taskList = [...newState.taskList, ...newPayload]
       } else {
-        newState.taskList = [...newState.taskList, { ...payload, id }]
+        newState.taskList = [...newState.taskList, { ...payload, id: checkId }]
       }
       return newState
     }
