@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker'
 import reducers from 'store/ducks/task/reducers';
 
 
@@ -59,6 +60,36 @@ describe('Testing saga reducer', () => {
         expect(reducerReturnValue).toEqual({ "showError": false, "taskList": [] });
     });
 
+    it("should handle @task/ADD_TASK", () => {
+        const type = "@task/ADD_TASK";
+        const initialState = {
+            taskList: [],
+            showError: false,
+        }
 
-    
+        // create random todos
+        const taskList = [];
+        Array.from(Array(faker.datatype.number(32)).keys()).forEach((idx) => {
+            taskList.push({
+                id: idx,
+                title: faker.lorem.sentence(),
+                completed: faker.datatype.boolean()
+            });
+        });
+
+        const actionData = {
+            taskList
+        };
+
+        const action = {
+            type,
+            data: actionData
+        };
+
+        const reducerReturnValue = reducers({ ...initialState, taskList: actionData?.taskList }, action);
+
+        expect(reducerReturnValue.taskList).toEqual(todos);
+        expect(reducerReturnValue.loading).toEqual(false);
+    });
+
 });
