@@ -63,7 +63,12 @@ const App = () => {
           />
         </InputContainer>
 
-        <AddButton type="submit">Add Task +</AddButton>
+        <AddButton
+          disabled={!task.trim().length ? 'disabled' : ''}
+          type="submit"
+        >
+          Add Task +
+        </AddButton>
 
         {/* {!!showError && <Error text="Uer not found!" />} */}
 

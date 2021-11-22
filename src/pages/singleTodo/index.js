@@ -77,7 +77,12 @@ const SingleTodo = () => {
               {todo.completed ? 'Completed' : 'Not Completed'}{' '}
             </DivContainer>
           </DivContainer>
-          <AddButton type="submit">Save Changes</AddButton>
+          <AddButton
+            disabled={!task.trim().length ? 'disabled' : ''}
+            type="submit"
+          >
+            Save Changes
+          </AddButton>
         </SingleTodoContainer>
       </Container>
     </>
