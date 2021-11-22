@@ -17,6 +17,7 @@ export const TodoContainer = styled.form`
   width: 40%;
   max-width: 600px;
   min-width: 360px;
+  margin: 13rem auto;
 `
 
 export const Title = styled.h1`
