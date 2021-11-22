@@ -28,14 +28,26 @@ export const Content = styled.div`
 
 export const Task = styled.div``
 
+export const CompleteTaskText = styled(Task)`
+  text-decoration: line-through;
+  border: none;
+  box-shadow: none;
+  color: grey;
+`
 
-export const DeleteTask = styled.button`
-    color: #fff !important;
-    background: var(--accent-color);
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 0px 1rem;
-    border: none;
+export const CompleteTask = styled.button`
+  color: #fff !important;
+  background: var(--accent-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0px 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+`
+
+export const IncompleteTask = styled(CompleteTask)`
+  background: #efefef;
 `
 
 export const RemoveButton = styled.div`
@@ -58,11 +70,10 @@ export const RemoveButton = styled.div`
   }
 `
 export const FlexContainerWrapper = styled.div`
-  display:flex;
-  justify-content:space-between;
-  align-item:center;
+  display: flex;
+  justify-content: space-between;
+  align-item: center;
 `
-
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
