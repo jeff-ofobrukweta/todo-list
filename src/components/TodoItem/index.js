@@ -11,7 +11,6 @@ import {
   FlexContainerWrapper,
   CompleteTaskText,
 } from './styles'
-import { Link } from 'react-router-dom'
 
 const TodoItem = (props) => {
   const { className, onCheckboxChange, task, id, onRemoveClick, completed } =
@@ -20,12 +19,6 @@ const TodoItem = (props) => {
   return (
     <Container className={className}>
       <RemoveButton onClick={onRemoveClick}>x</RemoveButton>
-      {/* <input
-        onChange={onCheckboxChange}
-        checked={completed ? true : false}
-        type="checkbox"
-      /> */}
-
       <Content>
         {completed ? (
           <CompleteTaskText>{task}</CompleteTaskText>
@@ -37,11 +30,11 @@ const TodoItem = (props) => {
           <StyledLink to={`/${id}`}>Edit</StyledLink>
           {completed ? (
             <CompleteTask onClick={onCheckboxChange}>
-              <i class="fas fa-check"></i>
+              <i className="fas fa-check"></i>
             </CompleteTask>
           ) : (
             <IncompleteTask onClick={onCheckboxChange}>
-              <i class="fas fa-grip-lines"></i>
+              <i className="fas fa-grip-lines"></i>
             </IncompleteTask>
           )}
         </FlexContainerWrapper>

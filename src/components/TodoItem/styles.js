@@ -47,7 +47,16 @@ export const CompleteTask = styled.button`
 `
 
 export const IncompleteTask = styled(CompleteTask)`
-  background: #efefef;
+  background: #8e8e8e2e;
+`
+
+export const SingleInCompleteTask = styled(IncompleteTask)`
+  padding: 0px 4px;
+  margin: 0px 1rem 0rem 0rem;
+`
+export const SingleCompleteTask = styled(CompleteTask)`
+  padding: 0px 4px;
+  margin: 0px 1rem 0rem 0rem;
 `
 
 export const RemoveButton = styled.div`

@@ -10,6 +10,11 @@ export const Container = styled.div`
   min-height: 100%;
   padding: 3.2rem 0;
 `
+export const DivContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`
 
 export const TodoContainer = styled.form`
   display: flex;
@@ -43,11 +48,11 @@ export const Input = styled.input`
   border: none;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 5px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   outline: none;
 
   &:focus {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.8);
   }
 `
@@ -55,7 +60,7 @@ export const Input = styled.input`
 export const AddButton = styled.button`
   padding: 1.6rem 2.4rem;
   background: var(--accent-color);
-  transition: background .2s ease-in-out;
+  transition: background 0.2s ease-in-out;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -65,7 +70,8 @@ export const AddButton = styled.button`
   font-weight: bold;
   font-size: 1.8rem;
 
-  &:hover, &:active{
+  &:hover,
+  &:active {
     background: var(--accent-color-active);
   }
 `

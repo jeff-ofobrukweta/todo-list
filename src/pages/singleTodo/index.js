@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container } from '../App/styles'
+import { Container, DivContainer } from '../App/styles'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -10,6 +10,10 @@ import {
   TodoContainer,
 } from 'pages/App/styles'
 import { updateTaskById } from 'store/ducks/task/actions'
+import {
+  SingleCompleteTask,
+  SingleInCompleteTask,
+} from '../../components/TodoItem/styles'
 
 const SingleTodo = () => {
   const [params, setParams] = useState(useParams().todo)
@@ -29,6 +33,10 @@ const SingleTodo = () => {
       }),
     )
     navigate('/')
+  }
+
+  const toggleCompleted = () => {
+    setTodo({ ...todo, completed: !todo.completed })
   }
 
   useEffect(() => {
@@ -55,6 +63,20 @@ const SingleTodo = () => {
           <InputContainer>
             <Input onChange={(e) => setTask(e.target.value)} value={task} />
           </InputContainer>
+          <DivContainer>
+            {todo.completed ? (
+              <SingleCompleteTask onClick={toggleCompleted} type="button">
+                <i className="fas fa-check"></i>
+              </SingleCompleteTask>
+            ) : (
+              <SingleInCompleteTask onClick={toggleCompleted} type="button">
+                <i className="fas fa-grip-lines"></i>
+              </SingleInCompleteTask>
+            )}
+            <DivContainer>
+              {todo.completed ? 'Completed' : 'Not Completed'}{' '}
+            </DivContainer>
+          </DivContainer>
           <AddButton type="submit">Save Changes</AddButton>
         </TodoContainer>
       </Container>
