@@ -7,7 +7,7 @@ import {
   AddButton,
   Input,
   InputContainer,
-  TodoContainer,
+  SingleTodoContainer,
 } from 'pages/App/styles'
 import { updateTaskById } from 'store/ducks/task/actions'
 import {
@@ -59,7 +59,7 @@ const SingleTodo = () => {
   return (
     <>
       <Container>
-        <TodoContainer onSubmit={handleSave}>
+        <SingleTodoContainer onSubmit={handleSave}>
           <InputContainer>
             <Input onChange={(e) => setTask(e.target.value)} value={task} />
           </InputContainer>
@@ -78,7 +78,7 @@ const SingleTodo = () => {
             </DivContainer>
           </DivContainer>
           <AddButton type="submit">Save Changes</AddButton>
-        </TodoContainer>
+        </SingleTodoContainer>
       </Container>
     </>
   )
