@@ -27,6 +27,10 @@ export const TodoContainer = styled.form`
   width: 100%;
 `
 
+export const SingleTodoContainer = styled(TodoContainer)`
+  transform: translateY(87%);
+`
+
 export const Title = styled.h1`
   color: var(--text-color);
   margin-bottom: 3.2rem;

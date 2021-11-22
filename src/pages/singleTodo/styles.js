@@ -9,18 +9,6 @@ export const Container = styled.div`
   padding: 3.2rem 0;
 `
 
-export const TodoContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 600px;
-  max-width: 500px;
-  padding: 0rem 1rem;
-  width: 100%;
-`
-
 export const Title = styled.h1`
   color: var(--text-color);
   margin-bottom: 3.2rem;
