@@ -5,7 +5,7 @@
 
 
 <div style="text-align: center">
-    <img alt="App Screenshot" src="images/screenshot.png">
+    <img alt="App Screenshot" src="images/todo-saga-1.png">
 </div>
 
 ---
