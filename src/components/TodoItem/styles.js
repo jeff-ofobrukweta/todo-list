@@ -49,10 +49,37 @@ export const CompleteTask = styled.button`
   border: none;
   cursor: pointer;
   font-weight: bold;
+
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover {
+    background: #ed7c83 radial-gradient(circle, transparent 1%, #ed7c83 1%)
+      center/15000%;
+  }
+
+  &:active {
+    background-color: #e3babc !important;
+    background-size: 100% !important;
+    transition: background 0s !important;
+  }
 `
 
 export const IncompleteTask = styled(CompleteTask)`
   background: #8e8e8e2e;
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover {
+    background: #3a3a3a radial-gradient(circle, transparent 1%, #3a3a3a 1%)
+      center/15000%;
+  }
+
+  &:active {
+    background-color: #444444 !important;
+    background-size: 100% !important;
+    transition: background 0s !important;
+  }
 `
 
 export const SingleInCompleteTask = styled(IncompleteTask)`
