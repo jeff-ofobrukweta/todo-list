@@ -29,7 +29,10 @@ export default (state = initialState, action) => {
             task: item.title,
           }
         })
+
         newState.taskList = [...newState.taskList, ...newPayload]
+
+        
       } else {
         newState.taskList = [...newState.taskList, { ...payload, id: checkId }]
       }

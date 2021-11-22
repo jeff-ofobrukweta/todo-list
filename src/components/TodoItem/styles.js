@@ -26,7 +26,12 @@ export const Content = styled.div`
   overflow: hidden;
 `
 
-export const Task = styled.div``
+export const Task = styled.div`
+    width: 270px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`
 
 export const CompleteTaskText = styled(Task)`
   text-decoration: line-through;

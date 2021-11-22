@@ -69,27 +69,28 @@ describe('Testing saga reducer', () => {
 
         // create random todos
         const taskList = [];
-        Array.from(Array(faker.datatype.number(32)).keys()).forEach((idx) => {
+        Array.from(Array(faker.datatype.number(21)).keys()).forEach((idx) => {
             taskList.push({
                 id: idx,
                 title: faker.lorem.sentence(),
-                completed: faker.datatype.boolean()
+                completed: faker.datatype.boolean(),
+                userId: idx,
             });
         });
 
         const actionData = {
             taskList
-        };
-
+        }
         const action = {
             type,
-            data: actionData
+            payload: actionData?.taskList
         };
 
-        const reducerReturnValue = reducers({ ...initialState, taskList: actionData?.taskList }, action);
+        const reducerReturnValue = reducers({ ...initialState }, action);
 
-        expect(reducerReturnValue.taskList).toEqual(todos);
-        expect(reducerReturnValue.loading).toEqual(false);
+        expect(reducerReturnValue.showError).toEqual(false);
+        expect( reducerReturnValue.taskList.length).toEqual(taskList.length);
+
     });
 
 });

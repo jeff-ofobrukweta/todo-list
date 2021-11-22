@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
-const Server = Axios.create({
+const server = Axios.create({
   baseURL: process.env.REACT_APP_BASE_URL
 })
 
-export default Server
+export default server

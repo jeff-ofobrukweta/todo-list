@@ -1,7 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Title should render the Title Component correctly 1`] = `
-<h1>
-  Test Title
-</h1>
+exports[`Title should snapshot the TodoItem Component correctly 1`] = `
+<styled.div>
+  <styled.div>
+    x
+  </styled.div>
+  <styled.div>
+    <styled.div />
+    <styled.div>
+      <Styled(Link)
+        to="/undefined"
+      >
+        Edit
+      </Styled(Link)>
+      <Styled(styled.button)>
+        <i
+          className="fas fa-grip-lines"
+        />
+      </Styled(styled.button)>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`Title should snapshot the TodoListContainer Component correctly 1`] = `
+<div
+  className="sc-fzqBZW gsMBNx"
+/>
 `;

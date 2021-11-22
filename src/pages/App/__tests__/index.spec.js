@@ -1,13 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import TodoItem from 'components/TodoItem';
+import { TodoListContainer } from 'pages/singleTodo/styles';
 
 
-const title = 'Test Title';
-let wrapped = shallow(<h1>{title}</h1>);
 
 
 describe('Title', () => {
-  it('should render the Title Component correctly', () => {   
+  
+  it('should snapshot the TodoItem Component correctly', () => {   
+    let wrapped = shallow(<TodoItem/>);
+    expect(wrapped).toMatchSnapshot();
+  });
+
+  it('should snapshot the TodoListContainer Component correctly', () => {   
+    let wrapped = shallow(<TodoListContainer/>);
     expect(wrapped).toMatchSnapshot();
   });
 });
