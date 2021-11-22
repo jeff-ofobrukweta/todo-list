@@ -36,7 +36,7 @@ From your command line:
 $ git clone https://github.com/jeff-ofobrukweta/todo-list.git
 
 # Go into the repository
-$ cd redux-saga-todo-list
+$ cd todo-list
 
 # Install dependencies
 $ yarn install
