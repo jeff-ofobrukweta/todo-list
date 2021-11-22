@@ -1,83 +1,65 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Container } from '../App/styles'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import {
-    Container,
-    InputContainer,
-    Input,
-    TodoContainer,
-    Title,
-    AddButton,
-} from './styles'
+  AddButton,
+  Input,
+  InputContainer,
+  TodoContainer,
+} from 'pages/App/styles'
+import { updateTaskById } from 'store/ducks/task/actions'
 
 const SingleTodo = () => {
-    const taskRef = useRef(null)
-    const [task, setTask] = useState('')
-    const dispatch = useDispatch()
+  const [params, setParams] = useState(useParams().todo)
+  const [task, setTask] = useState('')
+  const [todo, setTodo] = useState({})
+  const { taskList } = useSelector(({ Task }) => Task)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!task.trim()) return
-
-
-
-        taskRef.current.focus()
-    }
-    const [params, setParams] = useState(useParams().todo)
-    const [todo, setTodo] = useState({})
-    const { taskList } = useSelector(({ Task }) => Task)
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (
-            !taskList.length ||
-            !taskList.filter((todo) => Number(todo.id) === Number(params)).length
-        ) {
-            navigate('/')
-        }
-    }, [taskList])
-
-    useEffect(() => {
-        const singleTodo = taskList.filter(
-            (todo) => Number(todo.id) === Number(params),
-        )
-        setTodo(singleTodo[0])
-    }, [params])
-
-    return (
-        <>
-            {
-                (false) &&
-                <Container className="edit-wrapper-main-container">
-                    <TodoContainer onSubmit={handleSubmit}>
-                        <Title>{todo.task}</Title>
-
-                        <InputContainer>
-                            <Input
-                                ref={taskRef}
-                                value={task}
-                                onChange={(e) => setTask(e.target.value)}
-                                placeholder="Edit Task here"
-                            />
-                        </InputContainer>
-
-                        <AddButton type="submit">Edit Task</AddButton>
-
-                    </TodoContainer>
-                </Container>
-            }
-
-            {
-                (true) &&
-                <Container className="wrapper-main-container">
-                    <Title>{todo.task}</Title>
-                </Container>
-            }
-
-
-        </>
+  const handleSave = (e) => {
+    e.preventDefault()
+    setTodo({ ...todo, task })
+    if (!task.trim()) return
+    dispatch(
+      updateTaskById({
+        payload: { ...todo, task },
+      }),
     )
+    navigate('/')
+  }
+
+  useEffect(() => {
+    if (
+      !taskList.length ||
+      !taskList.filter((todo) => Number(todo.id) === Number(params)).length
+    ) {
+      navigate('/')
+    }
+  }, [taskList])
+
+  useEffect(() => {
+    const singleTodo = taskList.filter(
+      (todo) => Number(todo.id) === Number(params),
+    )
+    setTodo(singleTodo[0])
+    setTask(singleTodo[0]?.task)
+  }, [params])
+
+  return (
+    <>
+      <Container>
+        <TodoContainer onSubmit={handleSave}>
+          <InputContainer>
+            <Input onChange={(e) => setTask(e.target.value)} value={task} />
+          </InputContainer>
+          <AddButton type="submit">Save Changes</AddButton>
+        </TodoContainer>
+      </Container>
+    </>
+  )
 }
 
 export default SingleTodo

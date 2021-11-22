@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeTaskById, requestFetchTodo, addTask } from 'store/ducks/task'
+import { updateTaskById } from 'store/ducks/task/actions'
 import {
   Container,
   InputContainer,
@@ -35,6 +36,14 @@ const App = () => {
     const removeTaskAction = removeTaskById(id)
     dispatch(removeTaskAction)
   }
+
+  const handleCompletedStatus = (id, completed) => {
+    dispatch(
+      updateTaskById({
+        payload: { id, completed: !completed },
+      }),
+    )
+  }
   useEffect(() => {
     if (!taskList.length) {
       const fetchTodoAction = requestFetchTodo()
@@ -65,11 +74,20 @@ const App = () => {
           )}
 
           {taskList.map((taskItem) => {
-            const { id, task } = taskItem
+            const { id, task, completed } = taskItem
             const onRemove = () => handleRemoveTask(id)
 
+            const onToggle = () => handleCompletedStatus(id, completed)
+
             return (
-              <TaskItem key={id} id={id} onRemoveClick={onRemove} task={task} />
+              <TaskItem
+                completed={completed}
+                key={id}
+                id={id}
+                onRemoveClick={onRemove}
+                task={task}
+                onCheckboxChange={onToggle}
+              />
             )
           })}
         </TodoListContainer>

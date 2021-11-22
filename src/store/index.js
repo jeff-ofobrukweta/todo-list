@@ -5,6 +5,7 @@ import rootReducer from './rootReducer'
 
 const sagaMiddleware = createSagaMiddleware()
 
+
 const Store = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware)

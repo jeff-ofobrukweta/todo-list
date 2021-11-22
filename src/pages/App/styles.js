@@ -72,7 +72,7 @@ export const AddButton = styled.button`
 
 export const TodoListContainer = styled.div`
   background: var(--list-container-background);
-  padding: 3.2rem;
+  padding: 1.2rem;
   border-radius: 5px;
   width: 100%;
 `
