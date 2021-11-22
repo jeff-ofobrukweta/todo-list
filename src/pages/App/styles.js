@@ -22,8 +22,9 @@ export const TodoContainer = styled.form`
   justify-content: center;
   align-items: center;
   width: 40%;
-  max-width: 600px;
-  min-width: 360px;
+  max-width: 500px;
+  padding: 0rem 1rem;
+  width: 100%;
 `
 
 export const Title = styled.h1`
