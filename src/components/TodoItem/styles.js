@@ -31,8 +31,11 @@ export const Task = styled.div``
 
 export const DeleteTask = styled.button`
     color: #fff !important;
-    background-color: #d9534f;
-    border-color: #d43f3a;
+    background: var(--accent-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0px 1rem;
+    border: none;
 `
 
 export const RemoveButton = styled.div`
@@ -54,6 +57,12 @@ export const RemoveButton = styled.div`
     color: var(--accent-color);
   }
 `
+export const FlexContainerWrapper = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-item:center;
+`
+
 
 export const StyledLink = styled(Link)`
   text-decoration: none;

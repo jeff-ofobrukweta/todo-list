@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Task, RemoveButton, Content, StyledLink, DeleteTask } from './styles'
+import { Container, Task, RemoveButton, Content, StyledLink, DeleteTask, FlexContainerWrapper } from './styles'
 import { Link } from 'react-router-dom'
 
 const TodoItem = (props) => {
@@ -18,10 +18,14 @@ const TodoItem = (props) => {
 
       <Content>
         <Task>{task}</Task>
-        <StyledLink to={`/${id}`}>Edit</StyledLink>
-        <DeleteTask>
-          completed
-        </DeleteTask>
+
+        <FlexContainerWrapper>
+          <StyledLink to={`/${id}`}>Edit</StyledLink>
+          <DeleteTask>
+            completed
+          </DeleteTask>
+        </FlexContainerWrapper>
+
       </Content>
     </Container>
   )
