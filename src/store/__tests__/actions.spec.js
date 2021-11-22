@@ -18,7 +18,7 @@ describe('Testing saga actions', () => {
         expect(removeTaskById(1).payload).toEqual(1);
     });
 
-    it("should test todosFetched action", () => {
+    it("should test todos add task action via list of todos", () => {
         const taskList = [];
         // create random todos
         Array.from(Array(faker.datatype.number(32)).keys()).forEach((idx) => {
