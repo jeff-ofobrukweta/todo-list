@@ -25,6 +25,6 @@ exports[`Title should snapshot the TodoItem Component correctly 1`] = `
 
 exports[`Title should snapshot the TodoListContainer Component correctly 1`] = `
 <div
-  className="sc-fzqBZW gsMBNx"
+  className="sc-fzokOt hVigUA"
 />
 `;
