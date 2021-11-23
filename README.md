@@ -15,7 +15,7 @@
 
 This project was created to study more about Redux and learn Redux Saga to improve the state management of an application.
 
-👉 [CLICK HERE](https://github.com/jeff-ofobrukweta/todo-list) to see it running in your browser.
+👉 [CLICK HERE](https://todo-list-ebaeaf.netlify.app/) to see it running in your browser.
 
 ## :rocket: Technologies
 
